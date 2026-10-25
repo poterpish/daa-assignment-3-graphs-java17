@@ -1,0 +1,867 @@
+{
+  "command": "python tests/run_tests.py",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment (build 17.0.20+8-1-24.04-Ubuntu)\nOpenJDK 64-Bit Server VM (build 17.0.20+8-1-24.04-Ubuntu, mixed mode, sharing)",
+  "seed": 20261025,
+  "jvm_command": [
+    "java",
+    "-Xmx384m",
+    "-cp",
+    "/workspace/scratch/7d838035b61f/daa-assignment-3-graphs/.build/Java",
+    "Main"
+  ],
+  "per_batch_timeout_seconds": 20,
+  "witness_self_tests": [
+    {
+      "name": "kruskal-tied-forest",
+      "request": {
+        "task": "kruskal",
+        "n": 4,
+        "edges": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            1
+          ]
+        ]
+      },
+      "expected": {
+        "cost": 2,
+        "edge_ids": [
+          0,
+          1
+        ],
+        "components": 2
+      },
+      "valid_alternatives": [
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            1
+          ],
+          "components": 2
+        },
+        {
+          "cost": 2,
+          "edge_ids": [
+            2,
+            1
+          ],
+          "components": 2
+        }
+      ],
+      "invalid_witnesses": [
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            0
+          ],
+          "components": 2
+        },
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            1,
+            2
+          ],
+          "components": 2
+        },
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            9
+          ],
+          "components": 2
+        }
+      ],
+      "accepted_valid": 2,
+      "rejected_invalid": 3,
+      "status": "PASS"
+    },
+    {
+      "name": "prim-tied-forest",
+      "request": {
+        "task": "prim",
+        "n": 4,
+        "edges": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            1
+          ]
+        ]
+      },
+      "expected": {
+        "cost": 2,
+        "edge_ids": [
+          0,
+          1
+        ],
+        "components": 2
+      },
+      "valid_alternatives": [
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            1
+          ],
+          "components": 2
+        },
+        {
+          "cost": 2,
+          "edge_ids": [
+            2,
+            1
+          ],
+          "components": 2
+        }
+      ],
+      "invalid_witnesses": [
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            0
+          ],
+          "components": 2
+        },
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            1,
+            2
+          ],
+          "components": 2
+        },
+        {
+          "cost": 2,
+          "edge_ids": [
+            0,
+            9
+          ],
+          "components": 2
+        }
+      ],
+      "accepted_valid": 2,
+      "rejected_invalid": 3,
+      "status": "PASS"
+    },
+    {
+      "name": "scc-renaming",
+      "request": {
+        "task": "scc",
+        "n": 4,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "expected": {
+        "component": [
+          0,
+          0,
+          2,
+          3
+        ],
+        "condensation": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "valid_alternatives": [
+        {
+          "component": [
+            10,
+            10,
+            30,
+            99
+          ],
+          "condensation": [
+            [
+              10,
+              30
+            ]
+          ]
+        },
+        {
+          "component": [
+            8,
+            8,
+            2,
+            4
+          ],
+          "condensation": [
+            [
+              8,
+              2
+            ]
+          ]
+        }
+      ],
+      "invalid_witnesses": [
+        {
+          "component": [
+            10,
+            10,
+            30,
+            99
+          ],
+          "condensation": []
+        },
+        {
+          "component": [
+            10,
+            10,
+            30,
+            99
+          ],
+          "condensation": [
+            [
+              10,
+              30
+            ],
+            [
+              10,
+              30
+            ]
+          ]
+        },
+        {
+          "component": [
+            10,
+            10,
+            10,
+            99
+          ],
+          "condensation": []
+        }
+      ],
+      "accepted_valid": 2,
+      "rejected_invalid": 3,
+      "status": "PASS"
+    },
+    {
+      "name": "topo-independent-roots",
+      "request": {
+        "task": "topo",
+        "n": 4,
+        "edges": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "expected": {
+        "acyclic": true,
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "valid_alternatives": [
+        {
+          "acyclic": true,
+          "order": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "acyclic": true,
+          "order": [
+            1,
+            0,
+            2,
+            3
+          ]
+        }
+      ],
+      "invalid_witnesses": [
+        {
+          "acyclic": true,
+          "order": [
+            2,
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "acyclic": true,
+          "order": [
+            0,
+            1,
+            2,
+            2
+          ]
+        }
+      ],
+      "accepted_valid": 2,
+      "rejected_invalid": 2,
+      "status": "PASS"
+    },
+    {
+      "name": "dag-tied-parallel-parents",
+      "request": {
+        "task": "dag",
+        "n": 5,
+        "source": 0,
+        "edges": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            3,
+            1
+          ],
+          [
+            2,
+            3,
+            2
+          ]
+        ]
+      },
+      "expected": {
+        "acyclic": true,
+        "distance": [
+          0,
+          2,
+          1,
+          3,
+          null
+        ],
+        "parent_edge": [
+          -1,
+          0,
+          2,
+          3,
+          -1
+        ]
+      },
+      "valid_alternatives": [
+        {
+          "acyclic": true,
+          "distance": [
+            0,
+            2,
+            1,
+            3,
+            null
+          ],
+          "parent_edge": [
+            -1,
+            0,
+            2,
+            3,
+            -1
+          ]
+        },
+        {
+          "acyclic": true,
+          "distance": [
+            0,
+            2,
+            1,
+            3,
+            null
+          ],
+          "parent_edge": [
+            -1,
+            1,
+            2,
+            4,
+            -1
+          ]
+        }
+      ],
+      "invalid_witnesses": [
+        {
+          "acyclic": true,
+          "distance": [
+            0,
+            2,
+            1,
+            3,
+            null
+          ],
+          "parent_edge": [
+            -1,
+            2,
+            2,
+            3,
+            -1
+          ]
+        },
+        {
+          "acyclic": true,
+          "distance": [
+            0,
+            2,
+            1,
+            3,
+            null
+          ],
+          "parent_edge": [
+            -1,
+            0,
+            2,
+            0,
+            -1
+          ]
+        },
+        {
+          "acyclic": true,
+          "distance": [
+            0,
+            2,
+            1,
+            3,
+            null
+          ],
+          "parent_edge": [
+            -1,
+            0,
+            2,
+            3,
+            1
+          ]
+        }
+      ],
+      "accepted_valid": 2,
+      "rejected_invalid": 3,
+      "status": "PASS"
+    }
+  ],
+  "handwritten": {
+    "count": 40,
+    "seconds": 0.07780758600006266,
+    "status": "PASS"
+  },
+  "mixed_random": {
+    "random_case_count": 420,
+    "requests_in_one_process": 921,
+    "seconds": 0.14156933000003846,
+    "status": "PASS",
+    "input_sha256": "c4a2a912901dc9c226176ee53e4e83f5025c7602a2a9c2a89f091508b4a737a7",
+    "output_sha256": "fa1d137fe565514def262a81b43ece2aa270f72f412e7d23495dc744fe511322"
+  },
+  "route_helper": {
+    "calls": 7,
+    "status": "PASS"
+  },
+  "scale": [
+    {
+      "name": "limit-dsu",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "The first n-1 unions join a chain; all remaining unions repeat or self-union.",
+      "input_sha256": "6ec083ad5771697b8fc39f67edb913af40f42bf8fa7ce98adaa2434bd4bcc6a7",
+      "actual_output_sha256": "6c1041104068e3ffe5eb2eb17d963fa0c2b0dba57c96868a1502e73d3f1fe264",
+      "actual": {
+        "states": {
+          "length": 250000,
+          "first": [
+            [
+              99999,
+              2
+            ],
+            [
+              99998,
+              3
+            ],
+            [
+              99997,
+              4
+            ]
+          ],
+          "last": [
+            [
+              1,
+              100000
+            ],
+            [
+              1,
+              100000
+            ],
+            [
+              1,
+              100000
+            ]
+          ]
+        }
+      },
+      "seconds_including_four_reset_requests": 0.6538471789999676,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-kruskal-connected-positive",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "The only non-loop endpoint pairs form a chain; cheapest available edge for each consecutive pair is mandatory; remaining vertices are isolates.",
+      "input_sha256": "ec2225ef708397b9a31296bc7c70aae6649928e66ded8c077ccbbc9707180b58",
+      "actual_output_sha256": "2ce431aaeff0003451a1a1256412f3ae54eed3e3a5c91b8b94274d1932ee4804",
+      "actual": {
+        "cost": 99999000000000,
+        "edge_ids": {
+          "length": 99999,
+          "first": [
+            0,
+            1,
+            2
+          ],
+          "last": [
+            99996,
+            99997,
+            99998
+          ]
+        },
+        "components": 1
+      },
+      "seconds_including_four_reset_requests": 0.46743387899982736,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-prim-connected-positive",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "The only non-loop endpoint pairs form a chain; cheapest available edge for each consecutive pair is mandatory; remaining vertices are isolates.",
+      "input_sha256": "62e9a0c31bcbbfff848f6d1f5d5b6558fb1dc0ee2f3da624a146da85f5172d8f",
+      "actual_output_sha256": "2ce431aaeff0003451a1a1256412f3ae54eed3e3a5c91b8b94274d1932ee4804",
+      "actual": {
+        "cost": 99999000000000,
+        "edge_ids": {
+          "length": 99999,
+          "first": [
+            0,
+            1,
+            2
+          ],
+          "last": [
+            99996,
+            99997,
+            99998
+          ]
+        },
+        "components": 1
+      },
+      "seconds_including_four_reset_requests": 0.5459231479999289,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-kruskal-disconnected-negative",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "The only non-loop endpoint pairs form a chain; cheapest available edge for each consecutive pair is mandatory; remaining vertices are isolates.",
+      "input_sha256": "3dc95ecc675bc6a6f41a438ecbebe66b03bd681f34a962db78669310499e7067",
+      "actual_output_sha256": "7f4968be8976cce3e47651046c82bbcb15d8ff7bd2592ca88b80387ed61c8729",
+      "actual": {
+        "cost": -49999000000000,
+        "edge_ids": {
+          "length": 49999,
+          "first": [
+            0,
+            1,
+            2
+          ],
+          "last": [
+            49996,
+            49997,
+            49998
+          ]
+        },
+        "components": 50001
+      },
+      "seconds_including_four_reset_requests": 0.4581741819999934,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-prim-disconnected-negative",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "The only non-loop endpoint pairs form a chain; cheapest available edge for each consecutive pair is mandatory; remaining vertices are isolates.",
+      "input_sha256": "b86dfe83193e0eaa10a76dc02e451a8857fe60c73e696dfd3e55afebbfa3e057",
+      "actual_output_sha256": "7f4968be8976cce3e47651046c82bbcb15d8ff7bd2592ca88b80387ed61c8729",
+      "actual": {
+        "cost": -49999000000000,
+        "edge_ids": {
+          "length": 49999,
+          "first": [
+            0,
+            1,
+            2
+          ],
+          "last": [
+            49996,
+            49997,
+            49998
+          ]
+        },
+        "components": 50001
+      },
+      "seconds_including_four_reset_requests": 0.6181690580001487,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-scc-pairs",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "Pairs (2k,2k+1) are mutually reachable; all cross-pair edges go forward.",
+      "input_sha256": "5dc9918bff58cf1777e26cf3346b47670f15791cea3386438f027011170599bf",
+      "actual_output_sha256": "1c20e33bf915addfca3effa4beb1231923d8c4695bae9c0b94ad4930b8896221",
+      "actual": {
+        "component": {
+          "length": 100000,
+          "first": [
+            0,
+            0,
+            1
+          ],
+          "last": [
+            49998,
+            49999,
+            49999
+          ]
+        },
+        "condensation": {
+          "length": 49999,
+          "first": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "last": [
+            [
+              49996,
+              49997
+            ],
+            [
+              49997,
+              49998
+            ],
+            [
+              49998,
+              49999
+            ]
+          ]
+        }
+      },
+      "seconds_including_four_reset_requests": 0.492376146999959,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-scc-single-cycle",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "The directed spanning cycle reaches every vertex from every vertex.",
+      "input_sha256": "7cc1c8a8e772bfec871d1e73b71c6ff282e44024b19aae453dfacea24c46bce5",
+      "actual_output_sha256": "412b0d2c494cc5ab01318cc86f22bff1de1d017a68ae51c65e4b12b9dfcbbcaa",
+      "actual": {
+        "component": {
+          "length": 100000,
+          "first": [
+            0,
+            0,
+            0
+          ],
+          "last": [
+            0,
+            0,
+            0
+          ]
+        },
+        "condensation": {
+          "length": 0,
+          "first": [],
+          "last": []
+        }
+      },
+      "seconds_including_four_reset_requests": 0.48909832799995456,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-topo-deep-chain",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "All edges follow the full chain; the unique topological order is 0..n-1.",
+      "input_sha256": "94dc33a8253b2f1b0640500a64d6f9dc71d2bf47f6b9d65d2a8d213b53ede331",
+      "actual_output_sha256": "d8f6d80e5cab5528eb175785d5e4491128231b044c75936f321057cce0668a72",
+      "actual": {
+        "acyclic": true,
+        "order": {
+          "length": 100000,
+          "first": [
+            0,
+            1,
+            2
+          ],
+          "last": [
+            99997,
+            99998,
+            99999
+          ]
+        }
+      },
+      "seconds_including_four_reset_requests": 0.36573296699998536,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-dag-deep-negative-chain",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "Each step must cross one consecutive pair; its cheapest edge is -10^9, so d[i]=-i*10^9.",
+      "input_sha256": "d76f61159ae934efb4bcaccb53a99fcfb451b3dbbd170a518df59fe3efde23f5",
+      "actual_output_sha256": "d3181192476ca70da776e981b58576e1929315de34aa75e63e72a433a942fd16",
+      "actual": {
+        "acyclic": true,
+        "distance": {
+          "length": 100000,
+          "first": [
+            0,
+            -1000000000,
+            -2000000000
+          ],
+          "last": [
+            -99997000000000,
+            -99998000000000,
+            -99999000000000
+          ]
+        },
+        "parent_edge": {
+          "length": 100000,
+          "first": [
+            -1,
+            0,
+            1
+          ],
+          "last": [
+            99996,
+            99997,
+            99998
+          ]
+        }
+      },
+      "seconds_including_four_reset_requests": 0.46069247099990207,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-topo-disconnected-cycle",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "Vertices n-2 and n-1 form a directed cycle disconnected from the long chain.",
+      "input_sha256": "f7a8412ee5d817fcda42027133c511f4567ad59b25794aeb70b9822e5a892cc5",
+      "actual_output_sha256": "8d87b33da1794208938b1d93bba219df91f647a293079f664e2b05f831cb4413",
+      "actual": {
+        "acyclic": false,
+        "order": {
+          "length": 0,
+          "first": [],
+          "last": []
+        }
+      },
+      "seconds_including_four_reset_requests": 0.4407935230001385,
+      "status": "PASS"
+    },
+    {
+      "name": "limit-dag-unreachable-cycle",
+      "n": 100000,
+      "m_or_q": 250000,
+      "expected_reason": "The last two vertices form a cycle unreachable from source 0; the entire graph must still be rejected.",
+      "input_sha256": "db099d3d3fb177843bfe870b344f4233b0e3fbc312bd4ee28c0cf02e7b9c9ae7",
+      "actual_output_sha256": "24e25a6dba199dbc2a63f22ae27c18c221b75353efe6091adbbb6b1a77eeb5d0",
+      "actual": {
+        "acyclic": false,
+        "distance": {
+          "length": 0,
+          "first": [],
+          "last": []
+        },
+        "parent_edge": {
+          "length": 0,
+          "first": [],
+          "last": []
+        }
+      },
+      "seconds_including_four_reset_requests": 0.3433670259998962,
+      "status": "PASS"
+    }
+  ],
+  "overall": "PASS"
+}

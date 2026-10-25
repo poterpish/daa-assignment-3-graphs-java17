@@ -1,0 +1,191 @@
+{
+  "java_runtime": "17.0.20+8-1-24.04-Ubuntu",
+  "java_vm": "OpenJDK 64-Bit Server VM",
+  "java_vendor": "Ubuntu",
+  "os": "Linux 6.18.55",
+  "architecture": "amd64",
+  "available_processors": 9,
+  "max_heap_bytes": 402653184,
+  "jvm_arguments": [
+    "-Xms128m",
+    "-Xmx384m"
+  ],
+  "timer": "System.nanoTime() elapsed nanoseconds; displayed in milliseconds",
+  "warm_up_calls_per_method_per_size": 8,
+  "measured_calls_per_method_per_size": 7,
+  "order": "Alternate Kruskal-first and Prim-first pairs, warm-up and measurement",
+  "timing_boundary": "One complete Algorithms.kruskal/prim call: includes Input.edges conversion, algorithm structures, sorting/heap work and result creation; excludes compilation, JVM startup, generator, boxed request creation, JSON, validation and output",
+  "generator": "java.util.Random seed=20261025+n; random weighted chain, then random endpoint pairs; all weights uniform integer [-1000000000,1000000000]; Fisher-Yates shuffle",
+  "graph_hash_format": "SHA-256 of n,m then edge rows u,v,w, each signed int32 big-endian",
+  "sizes": [
+    {
+      "n": 1000,
+      "m": 4000,
+      "seed": 20262025,
+      "graph_sha256": "a38b4bdc3cd8e3a97139e42b26956ca1d34eb616dc44ec375643a533613a1b1f",
+      "components": 1,
+      "optimum_cost": -718277834591,
+      "validation": "PASS: IDs, acyclicity, spanning, sum, components, cycle-property certificate",
+      "kruskal": {
+        "samples_ns": [
+          1882785,
+          1613437,
+          3103609,
+          3075667,
+          3236019,
+          3977929,
+          3888855
+        ],
+        "samples_ms": [
+          1.882785,
+          1.613437,
+          3.103609,
+          3.075667,
+          3.236019,
+          3.977929,
+          3.888855
+        ],
+        "median_ms": 3.103609
+      },
+      "prim": {
+        "samples_ns": [
+          2127574,
+          1972770,
+          2261347,
+          2236057,
+          1970377,
+          1979280,
+          1939219
+        ],
+        "samples_ms": [
+          2.127574,
+          1.97277,
+          2.261347,
+          2.236057,
+          1.970377,
+          1.97928,
+          1.939219
+        ],
+        "median_ms": 1.97928
+      }
+    },
+    {
+      "n": 10000,
+      "m": 40000,
+      "seed": 20271025,
+      "graph_sha256": "079e1625ec479f25eeef06c6d5c2713dfbc4a2f609ea12524110824de400e834",
+      "components": 1,
+      "optimum_cost": -7109946578125,
+      "validation": "PASS: IDs, acyclicity, spanning, sum, components, cycle-property certificate",
+      "kruskal": {
+        "samples_ns": [
+          12945598,
+          13466875,
+          16097470,
+          15502911,
+          13730113,
+          14521779,
+          13399924
+        ],
+        "samples_ms": [
+          12.945598,
+          13.466875,
+          16.09747,
+          15.502911,
+          13.730113,
+          14.521779,
+          13.399924
+        ],
+        "median_ms": 13.730113
+      },
+      "prim": {
+        "samples_ns": [
+          26070737,
+          24456267,
+          29902887,
+          26613156,
+          26181424,
+          30328649,
+          24179349
+        ],
+        "samples_ms": [
+          26.070737,
+          24.456267,
+          29.902887,
+          26.613156,
+          26.181424,
+          30.328649,
+          24.179349
+        ],
+        "median_ms": 26.181424
+      }
+    },
+    {
+      "n": 50000,
+      "m": 200000,
+      "seed": 20311025,
+      "graph_sha256": "3ab0cb67c3d2baa095f62d118a3b6975920e10592c78c33cd4da23886baeee48",
+      "components": 1,
+      "optimum_cost": -35411340579835,
+      "validation": "PASS: IDs, acyclicity, spanning, sum, components, cycle-property certificate",
+      "kruskal": {
+        "samples_ns": [
+          143217850,
+          114369551,
+          160973276,
+          123209802,
+          110785206,
+          132965111,
+          133834573
+        ],
+        "samples_ms": [
+          143.21785,
+          114.369551,
+          160.973276,
+          123.209802,
+          110.785206,
+          132.965111,
+          133.834573
+        ],
+        "median_ms": 132.965111
+      },
+      "prim": {
+        "samples_ns": [
+          335982556,
+          263909479,
+          299777199,
+          259940325,
+          237617922,
+          299645612,
+          344831525
+        ],
+        "samples_ms": [
+          335.982556,
+          263.909479,
+          299.777199,
+          259.940325,
+          237.617922,
+          299.645612,
+          344.831525
+        ],
+        "median_ms": 299.645612
+      }
+    }
+  ],
+  "checksum": 0,
+  "measured_at_utc": "2026-10-25T16:59:25.889539+00:00",
+  "host": {
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logical_cpus_visible": 9,
+    "affinity_cpus": 9,
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "cpu_quota": "800000 100000",
+    "memory_limit": "8589934592"
+  },
+  "commands": {
+    "reproduce": "python tests/run_benchmark.py",
+    "compile": "javac --release 17 -encoding UTF-8 -d .build/Benchmark src/Java/*.java tests/Benchmark.java",
+    "run": "java -Xms128m -Xmx384m -cp .build/Benchmark Benchmark"
+  }
+}

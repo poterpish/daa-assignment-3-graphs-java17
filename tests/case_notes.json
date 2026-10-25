@@ -1,0 +1,202 @@
+[
+  {
+    "line": 1,
+    "name": "ping",
+    "justification": "The original supplied transport must retain ping readiness."
+  },
+  {
+    "line": 2,
+    "name": "dsu-empty",
+    "justification": "There are no vertices or operations, hence no output states."
+  },
+  {
+    "line": 3,
+    "name": "dsu-singleton",
+    "justification": "Both operations are self-unions of the only singleton."
+  },
+  {
+    "line": 4,
+    "name": "dsu-merges-and-repeats",
+    "justification": "Three disjoint pairs form first; merging two gives size 4, then merging the final pair gives size 6; duplicate and self-unions change nothing."
+  },
+  {
+    "line": 5,
+    "name": "kruskal-empty",
+    "justification": "An empty graph has the empty forest and no components."
+  },
+  {
+    "line": 6,
+    "name": "kruskal-isolates",
+    "justification": "All four vertices are isolated components; no edge may be chosen."
+  },
+  {
+    "line": 7,
+    "name": "kruskal-loops-parallels-negative",
+    "justification": "Components are {0,1,2}, {3,4}, {5}. In the triangle the two cheapest connecting edges cost -2 and 0; component {3,4} costs -1. Loops cannot enter a forest; edge 7 is an equally valid substitute for edge 5."
+  },
+  {
+    "line": 8,
+    "name": "kruskal-ties",
+    "justification": "Any two distinct triangle edges connect its three vertices at cost 2; vertex 3 is isolated."
+  },
+  {
+    "line": 9,
+    "name": "kruskal-64bit-positive",
+    "justification": "The input is a tree, so every edge is required: 4*10^9 exceeds signed 32-bit range."
+  },
+  {
+    "line": 10,
+    "name": "kruskal-only-loops",
+    "justification": "Even a very negative loop cannot connect distinct vertices; all vertices remain isolates."
+  },
+  {
+    "line": 11,
+    "name": "prim-empty",
+    "justification": "An empty graph has the empty forest and no components."
+  },
+  {
+    "line": 12,
+    "name": "prim-isolates",
+    "justification": "All four vertices are isolated components; no edge may be chosen."
+  },
+  {
+    "line": 13,
+    "name": "prim-loops-parallels-negative",
+    "justification": "Components are {0,1,2}, {3,4}, {5}. In the triangle the two cheapest connecting edges cost -2 and 0; component {3,4} costs -1. Loops cannot enter a forest; edge 7 is an equally valid substitute for edge 5."
+  },
+  {
+    "line": 14,
+    "name": "prim-ties",
+    "justification": "Any two distinct triangle edges connect its three vertices at cost 2; vertex 3 is isolated."
+  },
+  {
+    "line": 15,
+    "name": "prim-64bit-positive",
+    "justification": "The input is a tree, so every edge is required: 4*10^9 exceeds signed 32-bit range."
+  },
+  {
+    "line": 16,
+    "name": "prim-only-loops",
+    "justification": "Even a very negative loop cannot connect distinct vertices; all vertices remain isolates."
+  },
+  {
+    "line": 17,
+    "name": "scc-empty",
+    "justification": "Both arrays are empty for the empty directed graph."
+  },
+  {
+    "line": 18,
+    "name": "scc-isolates",
+    "justification": "No distinct vertices are mutually reachable."
+  },
+  {
+    "line": 19,
+    "name": "scc-one-component",
+    "justification": "The 0-1-2 cycle and two-way 2-3 connection make every vertex mutually reachable; the loop adds no condensation edge."
+  },
+  {
+    "line": 20,
+    "name": "scc-condensation-dedup",
+    "justification": "Mutually reachable sets are {0,1}, {2,3}, {4}, {5}, {6}. Three input edges from the first SCC to the second become exactly one pair; the self-loop is internal."
+  },
+  {
+    "line": 21,
+    "name": "scc-reverse-chain",
+    "justification": "Each vertex is its own SCC: no reverse reachability exists. Labels are arbitrary and are compared by partition, not exact integer."
+  },
+  {
+    "line": 22,
+    "name": "topo-empty",
+    "justification": "The empty order is a valid permutation of zero vertices."
+  },
+  {
+    "line": 23,
+    "name": "topo-isolates",
+    "justification": "Any permutation is valid because there are no precedence edges."
+  },
+  {
+    "line": 24,
+    "name": "topo-diamond-and-duplicates",
+    "justification": "Vertex 0 precedes 1 and 2, both precede 3; a duplicate edge does not create a directed cycle."
+  },
+  {
+    "line": 25,
+    "name": "topo-edge-to-finished",
+    "justification": "The edges imply 0<2<1. Under natural adjacency order, edge 2->1 reaches an already finished vertex, which is not a cycle."
+  },
+  {
+    "line": 26,
+    "name": "topo-self-loop",
+    "justification": "A self-loop is a directed cycle even in an otherwise empty component."
+  },
+  {
+    "line": 27,
+    "name": "topo-disconnected-cycle",
+    "justification": "The separate 3-4-3 cycle invalidates the whole graph, including vertices outside the first DFS tree."
+  },
+  {
+    "line": 28,
+    "name": "topo-three-cycle",
+    "justification": "Following the three edges returns to the active starting vertex."
+  },
+  {
+    "line": 29,
+    "name": "dag-singleton",
+    "justification": "The only reachable route is the zero-edge route from the source to itself."
+  },
+  {
+    "line": 30,
+    "name": "dag-isolates-source-two",
+    "justification": "Only source 2 is reachable. Unreachable distances must be null, and every parent is -1."
+  },
+  {
+    "line": 31,
+    "name": "dag-negative-route",
+    "justification": "Route 0-1-2 costs -4, beating direct cost 8; appending 2->3 gives cost 0. Vertex 4 is unreachable."
+  },
+  {
+    "line": 32,
+    "name": "dag-finite-minus-one",
+    "justification": "Distance -1 to vertex 1 is finite and must not be confused with unreachable vertex 2."
+  },
+  {
+    "line": 33,
+    "name": "dag-tied-parallel",
+    "justification": "Two parallel edges reach 1 at cost 2, and two routes reach 3 at cost 3. Any correct original incoming edge IDs are accepted."
+  },
+  {
+    "line": 34,
+    "name": "dag-nonzero-source-and-incoming",
+    "justification": "Source 3 reaches 0 by two tied routes of cost -1. Vertex 4 is unreachable despite its incoming edge to the source; source keeps distance 0 and parent -1."
+  },
+  {
+    "line": 35,
+    "name": "dag-64bit-negative",
+    "justification": "The unique route to vertex i has i edges of weight -10^9; final distances exceed the negative 32-bit range."
+  },
+  {
+    "line": 36,
+    "name": "dag-64bit-positive",
+    "justification": "The unique route to vertex i has i edges of weight 10^9; final distances exceed the positive 32-bit range."
+  },
+  {
+    "line": 37,
+    "name": "dag-unreachable-negative-component",
+    "justification": "No edge leaves the source component toward vertices 2,3,4, so their negative edges must never be relaxed."
+  },
+  {
+    "line": 38,
+    "name": "dag-unreachable-cycle",
+    "justification": "Vertices 3 and 4 form a directed cycle unreachable from 0; a global cycle check must still reject the graph."
+  },
+  {
+    "line": 39,
+    "name": "dag-self-loop",
+    "justification": "The reachable self-loop makes the graph non-DAG; no distance or parent array may be returned."
+  },
+  {
+    "line": 40,
+    "name": "dag-unreachable-self-loop",
+    "justification": "An unreachable zero-weight self-loop is still a global cycle."
+  }
+]

@@ -1,0 +1,324 @@
+[
+  {
+    "case": "reachable",
+    "call": "Algorithms.reconstructRoute(0, 3, edges, parentEdge)",
+    "source": 0,
+    "target": 3,
+    "original_edges": [
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        8
+      ],
+      [
+        1,
+        2,
+        -7
+      ],
+      [
+        2,
+        3,
+        4
+      ]
+    ],
+    "parent_edge": [
+      -1,
+      0,
+      2,
+      3,
+      -1
+    ],
+    "vertices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "selected_original_edge_ids": [
+      0,
+      2,
+      3
+    ],
+    "total_weight": 0,
+    "direction_and_weight_checked": true,
+    "status": "PASS"
+  },
+  {
+    "case": "source",
+    "call": "Algorithms.reconstructRoute(0, 0, edges, parentEdge)",
+    "source": 0,
+    "target": 0,
+    "original_edges": [
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        8
+      ],
+      [
+        1,
+        2,
+        -7
+      ],
+      [
+        2,
+        3,
+        4
+      ]
+    ],
+    "parent_edge": [
+      -1,
+      0,
+      2,
+      3,
+      -1
+    ],
+    "vertices": [
+      0
+    ],
+    "selected_original_edge_ids": [],
+    "total_weight": 0,
+    "direction_and_weight_checked": true,
+    "status": "PASS"
+  },
+  {
+    "case": "unreachable",
+    "call": "Algorithms.reconstructRoute(0, 4, edges, parentEdge)",
+    "source": 0,
+    "target": 4,
+    "original_edges": [
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        8
+      ],
+      [
+        1,
+        2,
+        -7
+      ],
+      [
+        2,
+        3,
+        4
+      ]
+    ],
+    "parent_edge": [
+      -1,
+      0,
+      2,
+      3,
+      -1
+    ],
+    "vertices": [],
+    "selected_original_edge_ids": [],
+    "total_weight": null,
+    "direction_and_weight_checked": true,
+    "status": "PASS"
+  },
+  {
+    "case": "tied-result-from-dag",
+    "call": "Algorithms.reconstructRoute(0, 3, edges, parentEdge)",
+    "source": 0,
+    "target": 3,
+    "original_edges": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "parent_edge": [
+      -1,
+      0,
+      2,
+      4,
+      -1
+    ],
+    "vertices": [
+      0,
+      2,
+      3
+    ],
+    "selected_original_edge_ids": [
+      2,
+      4
+    ],
+    "total_weight": 3,
+    "direction_and_weight_checked": true,
+    "status": "PASS"
+  },
+  {
+    "case": "parallel-edge-id-1",
+    "call": "Algorithms.reconstructRoute(0, 3, edges, parentEdge)",
+    "source": 0,
+    "target": 3,
+    "original_edges": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "parent_edge": [
+      -1,
+      1,
+      2,
+      3,
+      -1
+    ],
+    "vertices": [
+      0,
+      1,
+      3
+    ],
+    "selected_original_edge_ids": [
+      1,
+      3
+    ],
+    "total_weight": 3,
+    "direction_and_weight_checked": true,
+    "status": "PASS"
+  },
+  {
+    "case": "alternative-tied-path",
+    "call": "Algorithms.reconstructRoute(0, 3, edges, parentEdge)",
+    "source": 0,
+    "target": 3,
+    "original_edges": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "parent_edge": [
+      -1,
+      0,
+      2,
+      4,
+      -1
+    ],
+    "vertices": [
+      0,
+      2,
+      3
+    ],
+    "selected_original_edge_ids": [
+      2,
+      4
+    ],
+    "total_weight": 3,
+    "direction_and_weight_checked": true,
+    "status": "PASS"
+  },
+  {
+    "case": "deep-100000-vertex-route",
+    "call": "Algorithms.reconstructRoute(0, 99999, edges, parentEdge)",
+    "source": 0,
+    "target": 99999,
+    "vertices": {
+      "length": 100000,
+      "first": [
+        0,
+        1,
+        2
+      ],
+      "last": [
+        99997,
+        99998,
+        99999
+      ]
+    },
+    "selected_original_edge_ids": {
+      "length": 99999,
+      "first": [
+        0,
+        1,
+        2
+      ],
+      "last": [
+        99996,
+        99997,
+        99998
+      ]
+    },
+    "total_weight": 99999000000000,
+    "direction_and_weight_checked": true,
+    "status": "PASS"
+  }
+]
